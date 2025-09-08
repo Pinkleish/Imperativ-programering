@@ -121,33 +121,20 @@ while guess != my_number:
 
 print('==== Q6. ====')
 
-# Copy and paste your solution to Q4.
+# Copy and paste your solution to Q5.
 my_number = 27
-iteration = 1
+low = 1
+high = 50
 guess = random.randint(1, 50)
-print("My number is " + str(my_number))
-#print("Computer's guess is " + str(guess))
-print(iteration)
-if guess < my_number:
-    lower_bracket = guess
-    guess = random.randint(lower_bracket,50)
-    iteration = iteration + 1
-    print("Iteration:" + str(iteration)
-
-elif 5 > 2:
-    upper_bracket = guess
-    guess = random.randint(1,upper_bracket)
-    iteration = iteration + 1
-    print("Iteration:" + str(iteration)
 while guess != my_number:
-    guess = random.randint(lower_bracket, upper_bracket)
-    iteration = iteration + 1
-    print("Iteration:" + str(iteration))
-
-
-    #guess = random.randint(1, 50)
-    #iteration = iteration + 1
-    #print("Iteration:" + str(iteration))
+    if guess < my_number:
+        low = guess
+        print("Lower bound is " + str(low))
+    elif guess > my_number:
+        high = guess
+        print("Upper bound is " + str(high))
+    guess = random.randint(low, high)
+print(":)")
 
 # Now modify the solution so that:
 # in addition to printing the message, the range is adjusted with each guess.
@@ -157,7 +144,7 @@ while guess != my_number:
 # (It should now take less iterations to guess)
 
 # When you have completed the question above - remove or comment out the line below:
-exit()
+#exit()
 
 print('==== Q7. ====')
 # In this question we practice with keyboard input.
@@ -166,20 +153,25 @@ a = input("Enter a string:")
 print("You entered: " + a)
 b = input("Enter another string:")
 print("You entered: " + b)
-
-print("The longest string is: ")
+if len(a) == len(b):
+    print(a + " " + b)
+else:
+    print("The longest string is: " + max(a,b))
 
 # Write code to print the longest of the two strings.
 # If the strings are equal length, print both of them.
 
 # When you have completed the question above - remove or comment out the line below:
-exit()
+#exit()
 
 print('==== Q8. ====')
 
 # In this question, the user must enter a password. Valid passwords are between 5 and 10 digits.
 # Continue to repeatedly prompt the user for a password of password, until they enter one which satisfies the criteria.
-
 password = input("Enter a password (5-10 characters):")
+while len(password) > 10 or len(password) < 5:
+    print("password not valid")
+    password = input("Enter a password (5-10 characters):")
+print("password valid")
 
 print('==== END ====')
