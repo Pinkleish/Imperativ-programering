@@ -17,29 +17,34 @@ print(ducks)
 # We practice reading values from the array:
 
 # get the first element from the array (Kalle), and print it:
-
+print(ducks[0])
 # use the len function to compute the length of the array, and print it:
-
+print(len(ducks))
 # use the len(..) to get the last element of the via its index array, and print it:
-
-exit()
+print(len(ducks[6]))
+#exit()
 print('==== Q2. ====')
 ankor = ducks
 
 # We practice modifying arrays.
 
 # replace 'Farbror Joakim' with 'Magica de Spell' in ducks:
-
+ducks[4] = "Magica de Spell"
 # swap the strings with indices 1 and 2:
+place_holder = ducks[1]
+ducks[1] = ducks[2]
+ducks[2] = place_holder
 
 # Print the array ducks to check your result:
-
+print(ducks)
 # Now, print the array ankor:
-
+print(ankor)
 # Have your changes to ducks affected ankor? (yes/no)
+#yes
 # Write 1-2 sentences to explain.
-
-exit()
+#The array is a mutable object with multiple references, ducks & ankor. They both refer to the same object and are
+#interlinked in that way, if a change is done to the object then both ducks & ankor reference that changed object.
+#exit()
 print('==== Q3. ====')
 
 array_of_confusion = ["I","am","not","confused"]
@@ -54,47 +59,65 @@ print(array_of_confusion)
 
 # Read the code for the function confused(..)
 # Think: What values do you expect to see when the array is printed after the function has been invoked?
+#I expect all indices to be set to "confused" and printed
 # Run the code, then explain what you notice. Write 1-3 sentences explaining what you see.
-#
+#The array has indices 0 through 3 and our function redefines index i to "confused". i is in the range of 3 since
+#len(arr) == 3. We then run this function on our array which goes through 0 to 3 and redefines each index as "confused"
 
 # Tips: suggested reading for Lecture 5, Chapter 9.
 
-exit()
+#exit()
 print('==== Q4. ====')
 
 # Assign an array containing the numbers of a standard six-sided dice (using integer literals) to a variable called dice
-# dice =
-# print(dice)
+dice = [1, 2, 3, 4, 5, 6]
+print(dice)
 
 # We use this as our dice for the remaining questions.
 
-exit()
+#exit()
 print('==== Q5. ====')
 
 # sum the values in the dice array, using a for loop, with the range(..) function.
-# range(..) is a built in function. https://docs.python.org/3/library/stdtypes.html#typesseq-range
-# Print the result.
+# range(..) is a built in function. https://docs.python.org/3/library/stdtypes.html#typesseqarray_of_confusion = ["I","am","not","confused"]
+#print the result
+def dice_addition(array):
+    dice_sum = 0
+    for i in range(len(array)):
+        dice_sum = dice_sum + dice[i]
+        print(dice_sum)
+
+dice_addition(dice)
 
 # Having tested your code, convert it into a function which takes an array as an argument.
 # Invoke that function on the original dice array and print the result.
 
-exit()
+
+#exit()
 print('==== Q6. ====')
 
 # What happens if we pass a result from the function range(..) as the argument to the built-in function list(..)?
+#or j in range(4,11,2):
+    #rint(j)
 # Experiment in the interactive interpreter. Try passing 1, 2, and 3 integer arguments to the range(..) function.
 
 # Complete the function definition below to return a dice array for a dice with arbitrary number of sides.
 # Note that the first element should be 1.
 
-# def create_dice_array(sides):
+def create_dice_array(sides):
+    dice_array = []
+    for number in range(1, sides + 1):
+        dice_array = dice_array + [number]
+    return dice_array
+
 
 # Use the function to assign this variable:
-# dice_ten_sides =
+dice_ten_sides = create_dice_array(10)
+print(dice_ten_sides)
 
 # Print the value to check.
 
-exit()
+#exit()
 print('==== Q7. ====')
 # Now we practice calling functions within functions and loops.
 
