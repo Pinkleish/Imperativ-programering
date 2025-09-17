@@ -170,7 +170,7 @@ for x in range(1,11):
 print(zero_array)
 
 # Use this variable.
-roll_counts = sum(zero_array)
+roll_counts = zero_array
 print(roll_counts)
 #exit()
 print('==== Q10. ====')
@@ -186,7 +186,7 @@ print(maximum)
 scaled_results = []
 proportions = 40/maximum
 for number in zero_array:
-    scaled_results = scaled_results + [number*proportions]
+    scaled_results = scaled_results + [int(number*proportions)]
 print(scaled_results)
 
 # i.e. if the max count is 100, all counts are scaled by a factor of 0.4
@@ -199,12 +199,15 @@ def visualize_counts(viz_dice_faces, viz_roll_counts, viz_scaled_counts):
         viz_roll_count = viz_roll_counts[i]
         viz_scaled_count = viz_scaled_counts[i]
         print(f"{face:>4} {viz_roll_count:>8} {'*' * viz_scaled_count}")
-exit()
+visualize_counts(create_dice_array(6),roll_counts,scaled_results)
+#exit()
 print('==== Q11. ====')
 
 # Now repeat the experiment from the previous question, but using M dice, each with N sides, so that the maximum score on 
 # each roll is N*M. Visualize your results as before.
-
+M = 10
+N = 6
+create_dice_array(N)
 exit()
 print('==== Q12. ====')
 
