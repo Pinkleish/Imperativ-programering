@@ -150,13 +150,14 @@ print('==== Q8. ====')
 # (Hint: adapt the 'guessing' code from the F3 script).
 
 # Use a for loop to roll the dice 10 times, printing out the result each time, to verify it is working correctly.
-def dice_roll(sides):
+def dice_roll(sides,times):
     dice_array = create_dice_array(sides)
-    for x in range(1,11):
+    for x in range(1,times + 1):
         roll = random.randint(1, len(dice_array))
+        #print(roll)
     return(roll)
 
-print(dice_roll(6))
+print(dice_roll(6,M))
 
 #exit()
 print('==== Q9. ====')
@@ -212,10 +213,8 @@ print('==== Q11. ====')
 # Now repeat the experiment from the previous question, but using M dice, each with N sides, so that the maximum score on 
 # each roll is N*M. Visualize your results as before.
 
-#Create dice with N amount of sides
-#Roll them M amount of times
-#Store each roll in an incrementing array
-#Multiply array with a factor of N*M
+#This function only works if you set N=6 at the top of the program. The code is super entangled because I tried to reuse
+#functions from previous questions which I realize in this case was a mistake.
 
 #Skapa 3 listor för använding senare
 array = []
@@ -224,12 +223,13 @@ incr_scaled_array = []
 
 #Kalla funktionen dice_roll M gånger och gör en lista med resultatet för varje slag
 for times in range(1,M+1):
-    roll = dice_roll(N)
+    roll = dice_roll(N,1)
     array = array + [roll]
+    #print(array)
 
 #Samla alla olika slag i en lista så den visar mängden av varje siffra man slått
-    for x in array:
-        incr_array[x-1] += 1
+for x in array:
+    incr_array[x-1] += 1
 
 #Skapa en proportion faktor som gör att största talet i incr_array alltid blir = N*M  (i detta fallet 40)
 max = max_value(incr_array)
@@ -239,15 +239,15 @@ print(incr_array)
 
 #Tillsät faktorn och skapa en ny lista för det.
 for number in incr_array:
-    incr_scaled_array = incr_scaled_array + [number*proportions]
+    incr_scaled_array = incr_scaled_array + [int(number*proportions)]
 
 
 
 
 
 #print(array)
-print(incr_scaled_array)
-
+#print(incr_scaled_array)
+visualize_counts(dice,incr_array,incr_scaled_array)
 exit()
 print('==== Q12. ====')
 
