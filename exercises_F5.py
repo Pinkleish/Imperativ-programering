@@ -1,6 +1,10 @@
 # These exercises relate to Föreläsning 5 - Lists, For Loops, Sorting
 import random
 
+#For Q11
+N=4
+M=10
+
 print('==== Q1. ====')
 # This code creates an array from string literals:
 ducks = [
@@ -150,9 +154,9 @@ def dice_roll(sides):
     dice_array = create_dice_array(sides)
     for x in range(1,11):
         roll = random.randint(1, len(dice_array))
-        print(roll)
+    return(roll)
 
-dice_roll(6)
+print(dice_roll(6))
 
 #exit()
 print('==== Q9. ====')
@@ -164,7 +168,7 @@ zero_array = [0] * len(dice)
 print(zero_array)
 # Use a for loop to roll the dice 10 times, this time incrementing the element of the count array.
 # For example, if we roll a 3, we increment the third element of the array. (Think: which index is this?)
-for x in range(1,11):
+for x in range(1,M+1):
     roll = random.randint(1,6)
     zero_array[roll-1] += 1
 print(zero_array)
@@ -177,14 +181,16 @@ print('==== Q10. ====')
 
 # Now we try to visualize the results.
 # Write a function containing a for loop to compute the maximum value in an array.
-maximum = 0
-for number in zero_array:
-    if number > maximum:
-        maximum = number
-print(maximum)
+def max_value(array):
+    maximum = 0
+    for number in array:
+        if number > maximum:
+            maximum = number
+    return(maximum)
 # Create a new array of integers based on the counts, scaling all the values linearly so that the maximum becomes 40.
 scaled_results = []
-proportions = 40/maximum
+max = max_value(zero_array)
+proportions = N*M / max
 for number in zero_array:
     scaled_results = scaled_results + [int(number*proportions)]
 print(scaled_results)
@@ -205,9 +211,43 @@ print('==== Q11. ====')
 
 # Now repeat the experiment from the previous question, but using M dice, each with N sides, so that the maximum score on 
 # each roll is N*M. Visualize your results as before.
-M = 10
-N = 6
-create_dice_array(N)
+
+#Create dice with N amount of sides
+#Roll them M amount of times
+#Store each roll in an incrementing array
+#Multiply array with a factor of N*M
+
+#Skapa 3 listor för använding senare
+array = []
+incr_array = [0] * N
+incr_scaled_array = []
+
+#Kalla funktionen dice_roll M gånger och gör en lista med resultatet för varje slag
+for times in range(1,M+1):
+    roll = dice_roll(N)
+    array = array + [roll]
+
+#Samla alla olika slag i en lista så den visar mängden av varje siffra man slått
+    for x in array:
+        incr_array[x-1] += 1
+
+#Skapa en proportion faktor som gör att största talet i incr_array alltid blir = N*M  (i detta fallet 40)
+max = max_value(incr_array)
+proportions = N*M / max
+
+print(incr_array)
+
+#Tillsät faktorn och skapa en ny lista för det.
+for number in incr_array:
+    incr_scaled_array = incr_scaled_array + [number*proportions]
+
+
+
+
+
+#print(array)
+print(incr_scaled_array)
+
 exit()
 print('==== Q12. ====')
 
