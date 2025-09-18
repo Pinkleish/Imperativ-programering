@@ -213,9 +213,6 @@ print('==== Q11. ====')
 # Now repeat the experiment from the previous question, but using M dice, each with N sides, so that the maximum score on 
 # each roll is N*M. Visualize your results as before.
 
-#This function only works if you set N=6 at the top of the program. The code is super entangled because I tried to reuse
-#functions from previous questions which I realize in this case was a mistake.
-
 #Skapa 3 listor för använding senare
 array = []
 incr_array = [0] * N
@@ -242,14 +239,21 @@ for number in incr_array:
     incr_scaled_array = incr_scaled_array + [int(number*proportions)]
 
 
-
-
-
-#print(array)
-#print(incr_scaled_array)
-visualize_counts(dice,incr_array,incr_scaled_array)
-exit()
+visualize_counts(create_dice_array(N),incr_array,incr_scaled_array)
+#exit()
 print('==== Q12. ====')
+def sort(array):
+    for i in range(len(array)):
+        smallest_index = i
+        temp = array[i]
+        for j in range(i+1,len(array)):
+            if array[j] < array[smallest_index]:
+                smallest_index = j
+        array[i] = array[smallest_index]
+        array[smallest_index] = temp
+    return(array)
+print(sort(incr_array))
+
 
 # Print the roll_counts from Q11 in ascending order.
 
