@@ -1,0 +1,10 @@
+TODO - print the numbers in reverse order.
+52400
+48400
+12756
+12100
+6794
+4878
+2445
+1428
+120
