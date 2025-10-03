@@ -56,7 +56,7 @@ def train(features, classes):
         else:
             count1 += 1
             for i in range(n_features):
-                feature_counts0[i] += feature_vector[i]
+                feature_counts1[i] += feature_vector[i]
 
     # Convert counts to probabilities with Laplace smoothing (aka plus one smoothing)
     theta0 = [(c + 1) / (count0 + 2) for c in feature_counts0]
