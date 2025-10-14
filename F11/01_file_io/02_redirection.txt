@@ -1,0 +1,14 @@
+# We can also redirect the STDIN and/or STDOUT to files:
+
+python3 01_print_input.py < some_input_text.txt  > output.txt
+
+# That way, instead of reading from the keyboard, the text gets read from a file.
+# and output, if redirected, goes to a file instead of the terminal.
+
+# The advantage of this is that it works for any command-line application.
+# ...and its really simple!
+
+# The *disadvantage* of this technique that it will not allow us to simultaneously:
+# read from a file *and* the keyboard.
+# or print to a file *and* the screen.
+# ...and we need to do this in the project!
