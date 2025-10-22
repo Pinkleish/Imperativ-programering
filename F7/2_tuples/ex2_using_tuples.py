@@ -9,9 +9,9 @@ coordinates = (55.60, 13.00)
 # For example, we can represent the number
 # of items in a shopping cart like this:
 my_shopping = [
-    ('äpple', 3),
-    ('kex', 2),
-    ('mjölk', 1),
+    ('äpple', 3.0),
+    ('kex', 2.0),
+    ('mjölk', 1.0),
 ]
 
 # Can we write a linear search to find how many kex?

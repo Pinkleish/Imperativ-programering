@@ -1,6 +1,7 @@
 import random
-TREASURE_ICON = "S"
-TRAP_ICON = "F"
+import module
+TREASURE_ICON = module.TREASURE_ICON
+TRAP_ICON = module.TRAP_ICON
 
 def dungeon_size_input():
     # Asks user to enter a number
@@ -87,8 +88,9 @@ def dungeon_entrance(array):
             height_random = 0
     # Set the resulting coordinate to = " "
     array[height_random][length_random] = " "
+    return array[height_random][length_random]
 
-dungeon_entrance(dungeon_map)
+entrance = dungeon_entrance(dungeon_map)
 
 def dungeon_walls_place(array):
     # Randomly places amount of walls selected by user
@@ -120,7 +122,7 @@ def dungeon_walls_extend(array):
                     height_extension = height_random*iteration
                     length_extension = length_random*iteration
                     # Makes sure the wall isn't about to extend outside of the allowed area
-                    if 1 < i+height_extension < height-3 and 1 < j+length_extension < length-3:
+                    if 1 < i+height_extension < height-2 and 1 < j+length_extension < length-2:
                         # Places a temporary icon instead of wall to avoid extending extensions
                          array[i+height_extension][j+length_extension] = "T"
 
@@ -178,8 +180,8 @@ def dungeon_traps(array):
 dungeon_traps(dungeon_map)
 
 #Prints the map
-for row in dungeon_map:
-    print("".join(row))
+#for row in dungeon_map:
+    #print("".join(row))
 
 with open("dungeon_map.txt", "w") as map:
     for row in dungeon_map:

@@ -1,0 +1,2 @@
+TREASURE_ICON = "S"
+TRAP_ICON = "F"
